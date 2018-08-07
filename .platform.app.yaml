@@ -92,14 +92,6 @@ hooks:
         php bin/console --no-debug sylius:fixtures:load
 
 crons:
-    reset:
-        spec: "0 */1 * * *"
-        cmd: |
-            rm -rf web/media/*
-            php bin/console doctrine:cache:clear-metadata
-            php bin/console doctrine:cache:clear-query
-            php bin/console doctrine:cache:clear-result
-            php bin/console --no-debug sylius:fixtures:load
     renewcertificate:
         # Force a redeploy at 10 am (UTC) on the 3rd of every month.
         spec: '0 10 3 * *'
